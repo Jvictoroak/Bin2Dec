@@ -2,7 +2,7 @@
 function converter() {
     event.preventDefault()
 
-    binario = document.getElementById("binario").value
+    let binario = document.getElementById("binario").value
     console.log(binario)
 
     for (i = 0; i < binario.length; i++) {
@@ -17,8 +17,15 @@ function converter() {
         console.log("o valor não deve ultrapassar 8 dígitos")
         return
     }
-    while (binario.length < 8) {
-        binario = '0' + binario
-        console.log(binario)
+    
+    let invertedBinario = binario.split('').reverse()
+    console.log(invertedBinario);
+
+    let decimal = 0;
+        
+    for (i=0; i<invertedBinario.length; i++){
+        console.log(invertedBinario[i])
+        decimal = decimal + parseInt(invertedBinario[i])*(2**i)
+        console.log(decimal)
     }
 }
